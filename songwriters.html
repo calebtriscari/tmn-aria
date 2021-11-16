@@ -1,0 +1,53 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+		<title>Songwriter and Producer Plot</title>
+		<script type="text/javascript" src="d3.v4.js"></script>
+    <script type="text/javascript" src="songwriters.js"></script>
+		<style type="text/css">
+
+			/* rect:hover {
+				fill: orange;
+			} */
+			#tooltip {
+				position: absolute;
+				width: 200px;
+				height: auto;
+				padding: 10px;
+				background-color: white;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				pointer-events: none;
+			}
+
+			#tooltip.hidden {
+				display: none;
+			}
+
+			#tooltip p {
+				margin: 0;
+				font-family: sans-serif;
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			body {
+				background-color: #f4f4f4;
+				font-family: Source Sans Pro,sans-serif;
+				margin: 0;
+			}
+
+		</style>
+  </head>
+<body>
+	<p>View the number of: <select id="option-menu"></select></p>
+	<div id="tooltip" class="hidden">
+		<p id="description"></p>
+	</div>
+</body>
+</html>

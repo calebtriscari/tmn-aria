@@ -1,0 +1,114 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+		<title>Force Plot</title>
+		<script type="text/javascript" src="d3.v4.js"></script>
+    <script type="text/javascript" src="force.js" defer></script>
+		<style type="text/css">
+
+			#tooltip {
+				position: absolute;
+				max-width: 250px;
+				height: auto;
+				padding: 10px;
+				background-color: white;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				pointer-events: none;
+			}
+
+			#tooltip.hidden {
+				display: none;
+			}
+
+			#tooltip p {
+				margin: 0;
+				font-family: sans-serif;
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			#menus {
+				position: fixed;
+				padding-left: 20px;
+			}
+
+			body {
+				background-color: #f4f4f4;
+				font-family: Source Sans Pro,sans-serif;
+				margin: 0;
+				padding: 0;
+			}
+
+		</style>
+  </head>
+<body>
+	<div id = 'menus'>
+	    <p>
+	        <label for="group-menu">Group by </label>
+	        <select id="group-menu"></select>
+	    </p>
+	    <p>
+	        <label for="colour-menu">Colour by </label>
+	        <select id="colour-menu"></select>
+	    </p>
+	</div>
+
+	<div id="tooltip" class="hidden">
+		<p id="description"></p>
+		<p id="colourclass"></p>
+	</div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <defs>
+        <linearGradient id="shineGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="40%" stop-color="#222"></stop>
+			<stop offset="50%" stop-color="#555"></stop>
+			<stop offset="60%" stop-color="#222"></stop>
+		</linearGradient>
+		<g id="record">
+			<path class="disc" fill-rule="evenodd" fill="black"
+				d="M -50 0
+				   a 50 50 0 1 1 100 0
+				   a 50 50 0 1 1 -100 0
+				   M 1 0
+				   a 1 1 0 1 1 -2 0
+				   a 1 1 0 1 1 2 0">
+			</path>
+			<path class="label" fill-rule="evenodd"
+				d="M -15 0
+				   a 15 15 0 1 1 30 0
+				   a 15 15 0 1 1 -30 0
+				   M 1.2 0
+				   a 1.2 1.2 0 1 1 -2.4 0
+				   a 1.2 1.2 0 1 1 2.4 0">
+			</path>
+			<g class="shine">
+				<path fill="url('#shineGrad')"
+					d="M 16.62983158520316 -6.888301782571616
+					   A 18 18 0 0 0 6.888301782571617 -16.62983158520316
+					   L 18.368804753524312 -44.34621756054176
+					   A 48 48 0 0 1 44.34621756054176 -18.36880475352431
+					   M -16.62983158520316 6.888301782571616
+					   A 18 18 0 0 0 -6.888301782571617 16.62983158520316
+					   L -18.368804753524312 44.34621756054176
+					   A 48 48 0 0 1 -44.34621756054176 18.36880475352431
+					   Z">
+				</path>
+				<g class="tracks" fill="none" stroke="black" stroke-width="0.5">
+					<circle r="25.29659479658568"></circle>
+					<circle r="31.99770998043593"></circle>
+					<circle r="42.274633598051864"></circle>
+				</g>
+			</g>
+		</g>
+	</defs>
+	</svg>
+
+</body>
+</html>
