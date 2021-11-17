@@ -1,5 +1,6 @@
 var w = window.innerWidth;
 var h = 400;
+var nScale;
 
 var rowConverter = function(d){
   return{
@@ -8,16 +9,21 @@ var rowConverter = function(d){
   };
 };
 
+if (w <= 400){
+    nScale = 400;
+} else {
+    nScale = 550;
+}
 
 var projection = d3.geo.mercator()
                   .center([ 132, -28 ])
                    .translate([ w/2.2, h/2 ])
-                   .scale(550);
+                   .scale(nScale);
 
 var path = d3.geo.path()
             .projection(projection)
 
-d3.json('aust.json', function(json){
+d3.json('https://raw.githubusercontent.com/calebtriscari/tmn-aria/main/aust.json', function(json){
 
   var svg = d3.select('body')
               .append('svg')
